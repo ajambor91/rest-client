@@ -1,0 +1,13 @@
+{
+    "name": "AJ/RestClient",
+    "require": {
+        "nyholm/psr7": "^1.4",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "AJ\\Rest\\": "src/"
+        }
+},
+    "description": "Rest Client Library"
+}
