@@ -29,6 +29,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -82,7 +83,7 @@
       <workItem from="1615130488547" duration="1784000" />
       <workItem from="1615132778364" duration="1785000" />
       <workItem from="1615135164430" duration="1721000" />
-      <workItem from="1615136976989" duration="1452000" />
+      <workItem from="1615136976989" duration="1766000" />
     </task>
     <servers />
   </component>
