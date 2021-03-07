@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9407e75b-ad68-47f0-aa58-8f65fa0c6103" name="Default Changelist" comment="" />
+    <list default="true" id="9407e75b-ad68-47f0-aa58-8f65fa0c6103" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +14,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -21,6 +28,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1pKpNIFhrP2BIw4otQUwOqXBAR2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,7 +36,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../task-api" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
@@ -84,6 +92,8 @@
       <workItem from="1615132778364" duration="1785000" />
       <workItem from="1615135164430" duration="1721000" />
       <workItem from="1615136976989" duration="1766000" />
+      <workItem from="1615139275098" duration="613000" />
+      <workItem from="1615140807738" duration="95000" />
     </task>
     <servers />
   </component>
@@ -99,6 +109,10 @@
       <screen x="0" y="0" width="1366" height="742" />
     </state>
     <state x="472" y="53" width="445" height="635" key="#com.intellij.ide.util.MemberChooser/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615033158808" />
+    <state x="466" y="130" width="428" height="481" key="FileChooserDialogImpl" timestamp="1615140842718">
+      <screen x="0" y="0" width="1366" height="742" />
+    </state>
+    <state x="466" y="130" width="428" height="481" key="FileChooserDialogImpl/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615140842718" />
     <state x="172" y="7" key="SettingsEditor" timestamp="1615129862743">
       <screen x="0" y="0" width="1366" height="742" />
     </state>

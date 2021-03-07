@@ -1,5 +1,5 @@
 {
-    "name": "AJ/RestClient",
+    "name": "aj/rest",
     "require": {
         "nyholm/psr7": "^1.4",
         "ext-curl": "*"
