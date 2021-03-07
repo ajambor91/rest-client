@@ -10,45 +10,30 @@ use AJ\Rest\Users\Interfaces\JWTUserInterface;
 class JWTUser implements JWTUserInterface {
 
     /**
-     * @var array|string
-     */
-    private array | string $name;
-
-    /**
-     * @var array|string
-     */
-    private array | string $password;
-
-    /**
-     * @var string
-     */
-    private string $loginRoute;
-
-    /**
      * JWTUser constructor.
      * @param array $name
      * @param array $password
      * @param string $loginRoute
      */
-    public function __construct(array $name, array $password, string $loginRoute)
-    {
-        $this->name = $name;
-        $this->password = $password;
-        $this->loginRoute = $loginRoute;
-    }
+    public function __construct(
+        private array | string $name,
+        private array | string $password,
+        private string $loginRoute)
+    {}
 
     /**
-     * @param array $name
-     * ['field name' => ['password']
-     */
+    * @param array|string $name
+    * ['field name' => ['name']
+    */
     public function setName(string | array $name): void
     {
         $this->name = $name;
     }
 
     /**
-     * @param array $password
-     */
+    * @param array|string $password
+    * ['field name' => ['password']
+    */
     public function setPassword(array | string  $password): void
     {
         $this->password = $password;
@@ -72,7 +57,6 @@ class JWTUser implements JWTUserInterface {
 
     /**
      * @return array
-     * ['postname' => 'value']
      */
     public function getCredentials():array
     {

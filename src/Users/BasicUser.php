@@ -10,24 +10,14 @@ use AJ\Rest\Users\Interfaces\BasicUserInterface;
 class BasicUser implements BasicUserInterface {
 
     /**
-     * @var string|null
-     */
-    private ?string $name;
-    /**
-     * @var string|null
-     */
-    private ?string $password;
-
-    /**
      * BasicUser constructor.
      * @param string|null $name
      * @param string|null $password
      */
-    public function __construct(string $name = null, string $password = null)
-    {
-        $this->name = $name;
-        $this->password = $password;
-    }
+    public function __construct(
+        private string $name,
+        private string $password)
+    {}
 
     /**
      * @param string $password

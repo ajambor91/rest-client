@@ -33,22 +33,17 @@ abstract class Curl
      * @var
      */
     protected $curl;
-    /**
-     * @var string
-     */
-    protected string $apiAddr;
 
     /**
      * Curl constructor.
      * @param string $apiAddr
      * @param BasicUserInterface|JWTUserInterface|null $user
      */
-    public function __construct(string $apiAddr, JWTUserInterface|BasicUserInterface|null $user)
+    public function __construct(protected string $apiAddr, JWTUserInterface|BasicUserInterface|null $user)
     {
         $this->__requestConstruct($user);
         $this->__responseConstruct();
         $this->initCurl();
-        $this->apiAddr = $apiAddr;
     }
 
     /**
@@ -80,7 +75,7 @@ abstract class Curl
         curl_setopt($this->curl, CURLOPT_HEADERFUNCTION, function ($curl, $data) {
             $str = trim($data);
             if ('' !== $str) {
-                if (0 === strpos(strtolower($str), 'http/')) {
+                if (str_contains(strtolower($str), 'http/') === true) {
                     $this->setStatus($str);
                 } else {
                     $this->addHeader($str);
@@ -170,19 +165,16 @@ abstract class Curl
 
     }
 
-    /**
-     *
-     */
     private function initCurl()
     {
         $this->curl = curl_init();
-        curl_setopt($this->curl, CURLOPT_USERAGENT, "AJ PHP Rest Client");
-        curl_setopt($this->curl, CURLOPT_ENCODING, "UTF-8");
-        curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($this->curl, CURLOPT_AUTOREFERER, true);
-        curl_setopt($this->curl, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($this->curl, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($this->curl, CURLOPT_MAXREDIRS, 10);
-        curl_setopt($this->curl, CURLINFO_HEADER_OUT, true);
+        $options = [
+            CURLOPT_USERAGENT => "AJ PHP Rest Client",
+            CURLOPT_ENCODING => "UTF-8",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_MAXREDIRS => 10
+        ];
+        curl_setopt_array($this->curl, $options);
     }
 }

@@ -9,5 +9,7 @@
             "AJ\\Rest\\": "src/"
         }
 },
-    "description": "Rest Client Library"
+    "description": "Rest Client Library",
+    "require-dev": {
+    }
 }

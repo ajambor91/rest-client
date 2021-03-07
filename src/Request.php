@@ -43,13 +43,12 @@ trait Request {
     /**
      * @var BasicUserInterface|JWTUserInterface|null
      */
-    private JWTUserInterface | BasicUserInterface | null $user;
 
     /**
      * Request constructor.
      * @param $user
      */
-    public function __construct(BasicUserInterface | JWTUserInterface | null $user)
+    public function __construct(private BasicUserInterface | JWTUserInterface | null $user)
     {
         $this->user = $user;
     }
