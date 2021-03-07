@@ -3,12 +3,33 @@ namespace AJ\Rest\Users;
 
 use AJ\Rest\Users\Interfaces\JWTUserInterface;
 
+/**
+ * Class JWTUser
+ * @package AJ\Rest\Users
+ */
 class JWTUser implements JWTUserInterface {
 
-    private $name;
-    private $password;
-    private $loginRoute;
+    /**
+     * @var array|string
+     */
+    private array | string $name;
 
+    /**
+     * @var array|string
+     */
+    private array | string $password;
+
+    /**
+     * @var string
+     */
+    private string $loginRoute;
+
+    /**
+     * JWTUser constructor.
+     * @param array $name
+     * @param array $password
+     * @param string $loginRoute
+     */
     public function __construct(array $name, array $password, string $loginRoute)
     {
         $this->name = $name;
@@ -20,7 +41,7 @@ class JWTUser implements JWTUserInterface {
      * @param array $name
      * ['field name' => ['password']
      */
-    public function setName($name): void
+    public function setName(string | array $name): void
     {
         $this->name = $name;
     }
@@ -28,7 +49,7 @@ class JWTUser implements JWTUserInterface {
     /**
      * @param array $password
      */
-    public function setPassword($password): void
+    public function setPassword(array | string  $password): void
     {
         $this->password = $password;
     }
@@ -36,7 +57,7 @@ class JWTUser implements JWTUserInterface {
     /**
      * @return mixed
      */
-    public function getLoginRoute()
+    public function getLoginRoute():string
     {
         return $this->loginRoute;
     }
@@ -44,7 +65,7 @@ class JWTUser implements JWTUserInterface {
     /**
      * @param mixed $loginRoute
      */
-    public function setLoginRoute($loginRoute): void
+    public function setLoginRoute(string $loginRoute): void
     {
         $this->loginRoute = $loginRoute;
     }
@@ -53,15 +74,21 @@ class JWTUser implements JWTUserInterface {
      * @return array
      * ['postname' => 'value']
      */
-    public function getCredentials()
+    public function getCredentials():array
     {
+        if(true === is_string($this->name)) {
+            $this->name = [
+                'login' => $this->name
+            ];
+        }
+        if(true === is_string($this->password)){
+            $this->password = [
+                'password' => $this->password
+            ];
+        }
         return [
             $this->name,
             $this->password
         ];
     }
-
-
-
-
 }

@@ -8,10 +8,17 @@ use AJ\Rest\Exceptions\CallbackException;
 use AJ\Rest\Exceptions\InvalidRequestException;
 use AJ\Rest\Exceptions\NetworkException;
 use AJ\Rest\Helpers\ValidateToken;
+use AJ\Rest\Users\Interfaces\BasicUserInterface;
+use AJ\Rest\Users\Interfaces\JWTUserInterface;
 use Psr\Http\Message\RequestInterface;
 use AJ\Rest\Helpers\Headers;
 use AJ\Rest\Users\JWTUser;
+use Psr\Http\Message\ResponseInterface;
 
+/**
+ * Class Curl
+ * @package AJ\Rest
+ */
 abstract class Curl
 {
     use Request {
@@ -22,12 +29,21 @@ abstract class Curl
         Response::__construct as protected __responseConstruct;
     }
 
+    /**
+     * @var
+     */
     protected $curl;
-    protected $apiAddr;
-    protected $request;
-    private $psrRequest;
+    /**
+     * @var string
+     */
+    protected string $apiAddr;
 
-    public function __construct($apiAddr, $user)
+    /**
+     * Curl constructor.
+     * @param string $apiAddr
+     * @param BasicUserInterface|JWTUserInterface|null $user
+     */
+    public function __construct(string $apiAddr, JWTUserInterface|BasicUserInterface|null $user)
     {
         $this->__requestConstruct($user);
         $this->__responseConstruct();
@@ -35,22 +51,33 @@ abstract class Curl
         $this->apiAddr = $apiAddr;
     }
 
-    public function jwtLogin(JWTUser $user)
+    /**
+     * @param JWTUser $user
+     * @return string
+     * @throws InvalidTokenException
+     */
+    public function jwtLogin(JWTUser $user): string
     {
         $options[CURLOPT_URL] = $this->apiAddr . '/' . $user->getLoginRoute();
         $options[CURLOPT_CUSTOMREQUEST] = Methods::POST;
         $options[CURLOPT_POSTFIELDS] = json_encode($user->getCredentials());
         curl_setopt_array($this->curl, $options);
         $token = curl_exec($this->curl);
-        if (!ValidateToken::validateToken($token)){
+        if (!ValidateToken::validateToken($token)) {
             throw new InvalidTokenException();
         }
         return $token;
     }
 
-    protected function fire()
+    /**
+     * @return ResponseInterface
+     * @throws CallbackException
+     * @throws InvalidRequestException
+     * @throws NetworkException
+     */
+    protected function fire(): ResponseInterface
     {
-        curl_setopt($this->curl, CURLOPT_HEADERFUNCTION, function ($ch, $data) {
+        curl_setopt($this->curl, CURLOPT_HEADERFUNCTION, function ($curl, $data) {
             $str = trim($data);
             if ('' !== $str) {
                 if (0 === strpos(strtolower($str), 'http/')) {
@@ -62,7 +89,7 @@ abstract class Curl
             return \strlen($data);
         });
 
-        curl_setopt($this->curl, CURLOPT_WRITEFUNCTION, function ($ch, $data) {
+        curl_setopt($this->curl, CURLOPT_WRITEFUNCTION, function ($curl, $data) {
             return $this->addBody($data);
         });
 
@@ -77,7 +104,15 @@ abstract class Curl
         return $this->getResponse();
     }
 
-    protected function setOptionsFromRequest($curl, RequestInterface $request): \Psr\Http\Message\ResponseInterface
+    /**
+     * @param $curl
+     * @param RequestInterface $request
+     * @return ResponseInterface
+     * @throws CallbackException
+     * @throws InvalidRequestException
+     * @throws NetworkException
+     */
+    protected function createRequest($curl, RequestInterface $request): ResponseInterface
     {
         $options = [
             CURLOPT_CUSTOMREQUEST => $request->getMethod(),
@@ -101,24 +136,8 @@ abstract class Curl
             case Methods::DELETE:
             case Methods::PATCH:
             case Methods::OPTIONS:
-                $body = $request->getBody();
-                $bodySize = $body->getSize();
-                if (0 !== $bodySize) {
-                    if ($body->isSeekable()) {
-                        $body->rewind();
-                    }
-                    if (null === $bodySize || $bodySize > 1024 * 1024) {
-                        $options[CURLOPT_UPLOAD] = true;
-                        if (null !== $bodySize) {
-                            $options[CURLOPT_INFILESIZE] = $bodySize;
-                        }
-                        $options[CURLOPT_READFUNCTION] = function ($ch, $fd, $length) use ($body) {
-                            return $body->read($length);
-                        };
-                    } else {
-                        $options[CURLOPT_POSTFIELDS] = (string)$body;
-                    }
-                }
+                $options[CURLOPT_POSTFIELDS] = (string)$request->getBody();
+                break;
         }
 
         curl_setopt_array($curl, $options);
@@ -126,6 +145,12 @@ abstract class Curl
         return $this->fire();
     }
 
+    /**
+     * @param int $errorNumber
+     * @throws CallbackException
+     * @throws InvalidRequestException
+     * @throws NetworkException
+     */
     private function checkErrors(int $errorNumber)
     {
         switch ($errorNumber) {
@@ -145,6 +170,9 @@ abstract class Curl
 
     }
 
+    /**
+     *
+     */
     private function initCurl()
     {
         $this->curl = curl_init();

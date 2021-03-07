@@ -2,14 +2,36 @@
 
 namespace AJ\Rest\Users\Interfaces;
 
+/**
+ * Interface JWTUserInterface
+ * @package AJ\Rest\Users\Interfaces
+ */
+
 interface JWTUserInterface {
-    public function setName($name);
+    /**
+     * @param array|string $name
+     */
+    public function setName(string | array $name): void;
 
-    public function setPassword($password);
+    /**
+     * @param array|string $password
+     * @return array|string
+     */
+    public function setPassword(string | array $password): void;
 
-    public function getLoginRoute();
+    /**
+     * @return string
+     */
+    public function getLoginRoute(): string;
 
-    public function setLoginRoute($loginRoute);
+    /**
+     * @param string $loginRoute
+     */
+    public function setLoginRoute(string $loginRoute): void;
 
-    public function getCredentials();
+    /**
+     * @return array
+     */
+    public function getCredentials(): array;
+
 }

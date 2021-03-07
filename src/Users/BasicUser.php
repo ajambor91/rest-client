@@ -3,32 +3,59 @@ namespace AJ\Rest\Users;
 
 use AJ\Rest\Users\Interfaces\BasicUserInterface;
 
+/**
+ * Class BasicUser
+ * @package AJ\Rest\Users
+ */
 class BasicUser implements BasicUserInterface {
 
-    private $name;
-    private $password;
+    /**
+     * @var string|null
+     */
+    private ?string $name;
+    /**
+     * @var string|null
+     */
+    private ?string $password;
 
+    /**
+     * BasicUser constructor.
+     * @param string|null $name
+     * @param string|null $password
+     */
     public function __construct(string $name = null, string $password = null)
     {
         $this->name = $name;
         $this->password = $password;
     }
 
-    public function setPassword(string $password)
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password): void
     {
         $this->password = $password;
     }
 
+    /**
+     * @return string
+     */
     public function getPassword(): string
     {
         return $this->password;
     }
 
-    public function setName(string $name)
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;

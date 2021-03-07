@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9407e75b-ad68-47f0-aa58-8f65fa0c6103" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Curl.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Curl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Request.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Response.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/BasicUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/BasicUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Interfaces/BasicUserInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Interfaces/BasicUserInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Interfaces/JWTUserInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Interfaces/JWTUserInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/JWTUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/JWTUser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +42,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../task-api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
@@ -93,7 +99,9 @@
       <workItem from="1615135164430" duration="1721000" />
       <workItem from="1615136976989" duration="1766000" />
       <workItem from="1615139275098" duration="613000" />
-      <workItem from="1615140807738" duration="95000" />
+      <workItem from="1615140807738" duration="1000000" />
+      <workItem from="1615145473890" duration="1757000" />
+      <workItem from="1615147266135" duration="1592000" />
     </task>
     <servers />
   </component>
@@ -105,10 +113,10 @@
       <screen x="0" y="0" width="1366" height="742" />
     </state>
     <state x="350" y="174" width="660" height="393" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615131438157" />
-    <state x="472" y="53" width="445" height="635" key="#com.intellij.ide.util.MemberChooser" timestamp="1615033158808">
+    <state x="472" y="0" width="445" height="742" key="#com.intellij.ide.util.MemberChooser" timestamp="1615148670540">
       <screen x="0" y="0" width="1366" height="742" />
     </state>
-    <state x="472" y="53" width="445" height="635" key="#com.intellij.ide.util.MemberChooser/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615033158808" />
+    <state x="472" y="0" width="445" height="742" key="#com.intellij.ide.util.MemberChooser/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615148670540" />
     <state x="466" y="130" width="428" height="481" key="FileChooserDialogImpl" timestamp="1615140842718">
       <screen x="0" y="0" width="1366" height="742" />
     </state>
@@ -125,10 +133,10 @@
       <screen x="0" y="0" width="1366" height="742" />
     </state>
     <state x="487" y="64" width="455" height="613" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1614968010442" />
-    <state x="374" y="111" width="618" height="522" key="find.popup" timestamp="1615136682820">
+    <state x="374" y="111" width="618" height="522" key="find.popup" timestamp="1615148817533">
       <screen x="0" y="0" width="1366" height="742" />
     </state>
-    <state x="374" y="111" width="618" height="522" key="find.popup/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615136682820" />
+    <state x="374" y="111" width="618" height="522" key="find.popup/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615148817533" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1614954458493">
       <screen x="0" y="0" width="1366" height="742" />
     </state>
