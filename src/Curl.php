@@ -58,9 +58,7 @@ abstract class Curl
         $options[CURLOPT_POSTFIELDS] = json_encode($user->getCredentials());
         curl_setopt_array($this->curl, $options);
         $token = curl_exec($this->curl);
-        if (!ValidateToken::validateToken($token)) {
-            throw new InvalidTokenException();
-        }
+
         return $token;
     }
 

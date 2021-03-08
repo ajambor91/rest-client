@@ -1,6 +1,8 @@
 <?php
 namespace AJ\Rest;
 
+use AJ\Rest\Exceptions\InvalidTokenException;
+use AJ\Rest\Helpers\ValidateToken;
 use Nyholm\Psr7\MessageTrait;
 use Nyholm\Psr7\Stream;
 use Nyholm\Psr7\Uri;
@@ -103,9 +105,6 @@ trait Request {
         return Stream::create(json_encode($body ?: []));
     }
 
-    /**
-     *
-     */
     private function authUser()
     {
         if($this->user == null) {
@@ -114,6 +113,19 @@ trait Request {
             $this->uri = $this->uri->withUserInfo($this->user->getName(), $this->user->getPassword());
         } elseif ($this->user instanceof JWTUserInterface) {
             $token = $this->jwtLogin($this->user);
+            $token = json_decode($token) ?? $token;
+            if($this->user->getTokenKey() !== null &&
+                is_array($token) &&
+                array_key_exists($this->user->getTokenKey(), $token)) {
+                $token = $token[$this->user->getTokenKey()];
+            }elseif (is_array($token) &&
+                array_key_exists('token', $token)){
+                $token = $token['token'];
+            }
+
+            if(ValidateToken::validateToken($token) === false) {
+                throw new InvalidTokenException();
+            }
             $this->headers['Authorization'] = "Bearer $token";
         }
     }

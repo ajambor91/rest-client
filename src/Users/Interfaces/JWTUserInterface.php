@@ -34,4 +34,13 @@ interface JWTUserInterface {
      */
     public function getCredentials(): array;
 
+    /**
+     * @param string $key
+     */
+    public function setTokenKey(string $key): void;
+
+    /**
+     * @return string
+     */
+    public function getTokenKey(): string | null;
 }

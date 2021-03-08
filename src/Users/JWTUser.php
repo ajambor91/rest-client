@@ -18,7 +18,8 @@ class JWTUser implements JWTUserInterface {
     public function __construct(
         private array | string $name,
         private array | string $password,
-        private string $loginRoute)
+        private string $loginRoute,
+        private string | null $token = null,)
     {}
 
     /**
@@ -53,6 +54,22 @@ class JWTUser implements JWTUserInterface {
     public function setLoginRoute(string $loginRoute): void
     {
         $this->loginRoute = $loginRoute;
+    }
+
+    /**
+    * @param string $key
+    */
+    public function setTokenKey(string $key): void
+    {
+        $this->token = $key;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTokenKey(): string | null
+    {
+        return $this->token;
     }
 
     /**

@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9407e75b-ad68-47f0-aa58-8f65fa0c6103" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/ClientTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Curl.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Curl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Helpers/ValidateToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/ValidateToken.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Request.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/BasicUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/BasicUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Interfaces/JWTUserInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Interfaces/JWTUserInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/JWTUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/JWTUser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,6 +138,9 @@
       <workItem from="1615149576843" duration="1314000" />
       <workItem from="1615151473233" duration="82000" />
       <workItem from="1615151760242" duration="1682000" />
+      <workItem from="1615153652517" duration="201000" />
+      <workItem from="1615191817828" duration="1779000" />
+      <workItem from="1615193639056" duration="1686000" />
     </task>
     <servers />
   </component>
@@ -150,18 +152,22 @@
       <screen x="0" y="0" width="1366" height="742" />
     </state>
     <state x="350" y="174" width="660" height="393" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615131438157" />
-    <state x="472" y="0" width="445" height="742" key="#com.intellij.ide.util.MemberChooser" timestamp="1615148670540">
+    <state x="472" y="0" width="445" height="742" key="#com.intellij.ide.util.MemberChooser" timestamp="1615192043990">
       <screen x="0" y="0" width="1366" height="742" />
     </state>
-    <state x="472" y="0" width="445" height="742" key="#com.intellij.ide.util.MemberChooser/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615148670540" />
+    <state x="472" y="0" width="445" height="742" key="#com.intellij.ide.util.MemberChooser/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615192043990" />
     <state x="466" y="130" width="428" height="481" key="FileChooserDialogImpl" timestamp="1615148963981">
       <screen x="0" y="0" width="1366" height="742" />
     </state>
     <state x="466" y="130" width="428" height="481" key="FileChooserDialogImpl/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615148963981" />
-    <state x="172" y="7" key="SettingsEditor" timestamp="1615129862743">
+    <state x="172" y="7" key="SettingsEditor" timestamp="1615153741625">
       <screen x="0" y="0" width="1366" height="742" />
     </state>
-    <state x="172" y="7" key="SettingsEditor/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615129862743" />
+    <state x="172" y="7" key="SettingsEditor/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615153741625" />
+    <state x="98" y="100" width="1170" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1615153797402">
+      <screen x="0" y="0" width="1366" height="742" />
+    </state>
+    <state x="98" y="100" width="1170" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615153797402" />
     <state x="98" y="100" width="1170" height="544" maximized="true" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1614970980265">
       <screen x="0" y="0" width="1366" height="742" />
     </state>
@@ -174,10 +180,10 @@
       <screen x="0" y="0" width="1366" height="742" />
     </state>
     <state x="435" y="112" width="534" height="630" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615148990218" />
-    <state x="374" y="111" width="719" height="522" key="find.popup" timestamp="1615152790306">
+    <state x="374" y="111" width="719" height="522" key="find.popup" timestamp="1615195296176">
       <screen x="0" y="0" width="1366" height="742" />
     </state>
-    <state x="374" y="111" width="719" height="522" key="find.popup/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615152790306" />
+    <state x="374" y="111" width="719" height="522" key="find.popup/0.0.1366.742/1366.0.1360.768@0.0.1366.742" timestamp="1615195296176" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1614954458493">
       <screen x="0" y="0" width="1366" height="742" />
     </state>
