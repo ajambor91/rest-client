@@ -7,7 +7,6 @@ use AJ\Rest\Helpers\Methods;
 use AJ\Rest\Exceptions\CallbackException;
 use AJ\Rest\Exceptions\InvalidRequestException;
 use AJ\Rest\Exceptions\NetworkException;
-use AJ\Rest\Helpers\ValidateToken;
 use AJ\Rest\Users\Interfaces\BasicUserInterface;
 use AJ\Rest\Users\Interfaces\JWTUserInterface;
 use Psr\Http\Message\RequestInterface;
